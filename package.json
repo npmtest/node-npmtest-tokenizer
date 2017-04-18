@@ -1,1 +1,40 @@
-{     "devDependencies": {         "tokenizer": "*",         "electron-lite": "kaizhu256/node-electron-lite#alpha",         "utility2": "kaizhu256/node-utility2#alpha"     },     "name":"npmtest-tokenizer",     "homepage": "https://github.com/npmtest/node-npmtest-tokenizer",     "repository": {         "type": "git",         "url": "https://github.com/npmtest/node-npmtest-tokenizer.git"     },     "scripts": {         "build-ci": "utility2 shReadmeTest build_ci.sh"     },     "version": "0.0.1" }
+{
+    "author": "kai zhu <kaizhu256@gmail.com>",
+    "description": "#### test coverage for  [tokenizer (v1.1.2)](http://github.com/floby/node-tokenizer)  [![npm package](https://img.shields.io/npm/v/npmtest-tokenizer.svg?style=flat-square)](https://www.npmjs.org/package/npmtest-tokenizer) [![travis-ci.org build-status](https://api.travis-ci.org/npmtest/node-npmtest-tokenizer.svg)](https://travis-ci.org/npmtest/node-npmtest-tokenizer)",
+    "devDependencies": {
+        "electron-lite": "kaizhu256/node-electron-lite#alpha",
+        "tokenizer": "*",
+        "utility2": "kaizhu256/node-utility2#alpha"
+    },
+    "engines": {
+        "node": ">=4.0"
+    },
+    "homepage": "https://github.com/npmtest/node-npmtest-tokenizer",
+    "keywords": [
+        "coverage",
+        "test",
+        "tokenizer"
+    ],
+    "license": "MIT",
+    "main": "lib.npmtest_tokenizer.js",
+    "name": "npmtest-tokenizer",
+    "nameAlias": "npmtest_tokenizer",
+    "nameOriginal": "npmtest-tokenizer",
+    "os": [
+        "darwin",
+        "linux"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/npmtest/node-npmtest-tokenizer.git"
+    },
+    "scripts": {
+        "build-ci": "utility2 shReadmeTest build_ci.sh",
+        "env": "env",
+        "heroku-postbuild": "npm install \"kaizhu256/node-utility2#alpha\" && utility2 shDeployHeroku",
+        "postinstall": "[ ! -f npm_scripts.sh ] || ./npm_scripts.sh postinstall",
+        "start": "PORT=${PORT:-8080} utility2 start test.js",
+        "test": "(set -e; export PORT=$(utility2 shServerPortRandom); utility2 test test.js)"
+    },
+    "version": "0.0.1"
+}
